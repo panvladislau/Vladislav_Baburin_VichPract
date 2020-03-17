@@ -1,1 +1,4 @@
-*.txt
+# Project exclude paths
+/out/
+/.idea
+/*.iml
