@@ -13,17 +13,14 @@ public class UserRepository implements GenericDAO<String, UserEntity> {
     Hashtable<String, UserEntity> usersTable = new Hashtable<String, UserEntity>();
 
     public UserRepository() throws IOException, ParseException {
-        ClassLoader classLoader = UserRepository.class.getClassLoader();
-        File file = new File(classLoader.getResource("Users.json").getFile());
-        String path = file.getAbsolutePath();
-        System.out.print(path);
+        String path = "D:\\reposirory\\lab1\\Vladislav_Baburin_VichPract\\Parking\\resources\\Users.json";
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(path));
         JSONArray jsonArray = (JSONArray) jsonObject.get("users");
 
-
-        for (Object o : jsonArray) {
-            JSONObject object = (JSONObject) jsonParser.parse(o.toString());
+        for (int i=0; i<jsonArray.size(); i++) {
+            Object ob = jsonArray.get(i);
+            JSONObject object = (JSONObject) jsonParser.parse(ob.toString());
 
             String username = object.get("username").toString();
             String password = object.get("password").toString();
@@ -45,9 +42,7 @@ public class UserRepository implements GenericDAO<String, UserEntity> {
 
     @Override
     public void save() throws IOException {
-        ClassLoader classLoader = UserRepository.class.getClassLoader();
-        File file = new File(classLoader.getResource("Users").getFile());
-        String fileName = file.getAbsolutePath();
+        String fileName = "D:\\reposirory\\lab1\\Vladislav_Baburin_VichPract\\Parking\\resources\\Users.json";
         String str = this.toString();
         FileOutputStream outputStream = new FileOutputStream(fileName);
         byte[] strToBytes = str.getBytes();
@@ -78,7 +73,7 @@ public class UserRepository implements GenericDAO<String, UserEntity> {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("{\n");
-        sb.append("\"clients\" : [\n");
+        sb.append("\"users\" : [\n");
         for (String key: usersTable.keySet()){
             sb.append("{\n");
             sb.append(usersTable.get(key).toString());

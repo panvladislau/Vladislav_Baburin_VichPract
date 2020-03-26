@@ -1,66 +1,75 @@
 package code.domain;
 
-public class ParkingPlace extends AbstractEntity<Long> {
-    private String placeNumber = "nope";
-    private boolean placeOccupation = false;
-    private Car placedCar = new Car();
+public class ParkingPlace {
+    private String parkingName;
+    private String placeNumber;
+    private String locatedCarNumber;
+    private String id;
+    private String currentUser;
 
-    public ParkingPlace() {
-        this.placeNumber = placeNumber;
-        this.placeOccupation = placeOccupation;
-        this.placedCar = placedCar;
+    public String getParkingName() {
+        return parkingName;
     }
 
-    public ParkingPlace(String placeNumber, boolean placeOccupation, Car placedCar) {
-        this.placeNumber = placeNumber;
-        this.placeOccupation = placeOccupation;
-        this.placedCar = placedCar;
-    }
-
-    public void setPlaceNumber(String placeNumber) {
-        this.placeNumber = placeNumber;
-    }
-
-    public void setPlaceOccupation(boolean placeOccupation) {
-        this.placeOccupation = placeOccupation;
-    }
-
-    public void setPlacedCar(Car placedCar) {
-        this.placedCar = placedCar;
+    public void setParkingName(String parkingName) {
+        this.parkingName = parkingName;
     }
 
     public String getPlaceNumber() {
         return placeNumber;
     }
 
-    public boolean getPlaceOccupation() {
-        return placeOccupation;
+    public void setPlaceNumber(String placeNumber) {
+        this.placeNumber = placeNumber;
     }
 
-    public Car getPlacedCar() {
-        return placedCar;
+    public String getLocatedCarNumber() {
+        return locatedCarNumber;
     }
 
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        ParkingPlace that = (ParkingPlace) object;
-        return java.util.Objects.equals(placeNumber, that.placeNumber) &&
-                java.util.Objects.equals(placeOccupation, that.placeOccupation) &&
-                java.util.Objects.equals(placedCar, that.placedCar);
+    public void setLocatedCarNumber(String locatedCarNumber) {
+        this.locatedCarNumber = locatedCarNumber;
     }
 
-    public int hashCode() {
-        return java.util.Objects.hash(super.hashCode(), placeNumber, placeOccupation, placedCar);
+    public String getId() {
+        return id;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
-        return "ParkingPlace{" +
-                "placeNumber=" + placeNumber +
-                ", placeOccupation=" + placeOccupation +
-                ", placedCar=" + placedCar +
-                '}';
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(String currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    public ParkingPlace (){
+        parkingName = "";
+        placeNumber = "";
+        locatedCarNumber = "";
+        id = "";
+        currentUser = "";
+    }
+
+    public ParkingPlace (String parkingName, String placeNumber, String locatedCarNumber, String id, String currentUser){
+        this.parkingName =  parkingName;
+        this.placeNumber = placeNumber;
+        this.locatedCarNumber = locatedCarNumber;
+        this.id = id;
+        this.currentUser = currentUser;
+    }
+
+    @Override
+    public String toString() {
+        return "Parking name: ".concat(parkingName).concat("\n")
+                .concat("Place number: ").concat(placeNumber).concat("\n")
+                .concat("Located car number: ").concat(locatedCarNumber).concat("\n")
+                .concat("Id: ").concat(id).concat("\n")
+                .concat("Current user: ").concat(currentUser).concat("\n")
+                .concat("\n");
     }
 }

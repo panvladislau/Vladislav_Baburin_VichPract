@@ -45,7 +45,15 @@ public class UserService {
         UserEntity entity = new UserEntity();
         entity.setUsername(user.getUsername());
         entity.setPassword(user.getPassword());
-        entity.setAdmin(false);
+        entity.setAdmin(user.getIsAdmin());
         userRepository.add(entity);
     }
+
+    public void deleteUser(User user) throws IOException {
+        if (user.getIsAdmin()) {
+            String username = user.getUsername();
+            userRepository.delete(username);
+        }
+    }
+    //will be used by admin
 }

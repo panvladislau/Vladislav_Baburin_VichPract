@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79821996-5ade-4c69-abc0-4c13b325c475" name="Default Changelist" comment="" />
+    <list default="true" id="79821996-5ade-4c69-abc0-4c13b325c475" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Parking.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/Parking.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/Parking.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/Users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/Console.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/code/Console.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/dao/GenericDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/code/dao/GenericDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/dao/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/code/dao/UserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/dao/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/code/dao/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/domain/AbstractEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/domain/Car.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/domain/CarOwner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/domain/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/domain/Parking.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/domain/ParkingPlace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/code/domain/ParkingPlace.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/code/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/exception/ValidationException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/code/exception/ValidationException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/service/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/service/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/code/service/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/code/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Parking/code/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/resources/Parking.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Parking/resources/Users.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/dao/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/dao/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/domain/AbstractEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/domain/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/domain/CarOwner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/domain/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/domain/Parking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/domain/ParkingPlace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/domain/ParkingPlace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/service/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/service/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/service/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Parking.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Users.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +58,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1ZFuTvLSAW0PpgWbZVqVfNLXeQ7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -30,8 +72,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../UltraAir" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -116,6 +158,10 @@
       <workItem from="1585171962692" duration="3482000" />
       <workItem from="1585184702479" duration="1030000" />
       <workItem from="1585188262633" duration="50000" />
+      <workItem from="1585226137296" duration="25653000" />
+      <workItem from="1585252129930" duration="122000" />
+      <workItem from="1585252752919" duration="592000" />
+      <workItem from="1585253457093" duration="153000" />
     </task>
     <servers />
   </component>
@@ -123,54 +169,62 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="722" y="71" key="#Project_Structure" timestamp="1585158011647">
+    <state x="722" y="71" key="#Project_Structure" timestamp="1585252791769">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="722" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1585158011647" />
+    <state x="722" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1585252791769" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1585253006223">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585253006223" />
     <state x="566" y="297" width="403" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1585162867313">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="297" width="403" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1585162867313" />
-    <state x="669" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584448670089">
+    <state x="590" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585245448187">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="669" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1584448670089" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585168903918">
+    <state x="590" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1585245448187" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585246175146">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585168903918" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1585185579851">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585246175146" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1585241352542">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585185579851" />
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1585188314906">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585241352542" />
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1585253609932">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585188314906" />
-    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1585188314906">
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585253609932" />
+    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1585253609932">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585188314906" />
-    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1585188314906">
+    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585253609932" />
+    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1585253609932">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585188314906" />
-    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1585188314906">
+    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585253609932" />
+    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1585253609932">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585188314906" />
-    <state x="0" y="0" key="SettingsEditor" timestamp="1585185730003">
+    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585253609932" />
+    <state x="0" y="0" key="SettingsEditor" timestamp="1585253514947">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="0" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585185730003" />
-    <state x="209" y="32" key="new project wizard" timestamp="1585172625584">
+    <state x="0" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585253514947" />
+    <state x="472" y="215" key="com.intellij.ide.util.TipDialog" timestamp="1585253457062">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="32" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1585172625584" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1584476898611">
+    <state x="472" y="215" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585253457062" />
+    <state x="209" y="32" key="new project wizard" timestamp="1585229541993">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584476898611" />
+    <state x="209" y="32" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1585229541993" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1585242433267">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585242433267" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Parking$Start.ic" NAME="Start Coverage Results" MODIFIED="1585158213896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
