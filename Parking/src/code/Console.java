@@ -1,10 +1,12 @@
 package code;
+import code.dao.CarEntity;
+import code.domain.Parking;
+import code.service.ParkingService;
 import code.service.UserService;
-import code.service.ParkingPlaceService;
 
 import code.domain.User;
-import code.domain.ParkingPlace;
-import org.json.simple.parser.ParseException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,12 +16,15 @@ public class Console {
 
     static final Scanner sc = new Scanner(System.in);
 
+    private static final Logger logger = LogManager.getLogger();
+
     public static void main(String[] args) throws Exception {
-        Console console = new Console(); //variables creating
+        Console console = new Console();
         console.menu();
     }
 
     public void menu() throws Exception {
+        logger.info("Starting program");
         String menu = "\"Menu\""
                 + "\n------\n"
                 + "1. Show all parking places;\n"
@@ -50,16 +55,19 @@ public class Console {
     }
 
     public void showParkingPlaces(User user) throws Exception {
-        System.out.print("Showing all parking places\n");
-        ParkingPlaceService parkingPlace = new ParkingPlaceService();
-        ArrayList<String> parkingPlaceList = parkingPlace.getParkingPlaceStrings();
-        //System.out.print("\nUsers:\n------\n\n");
-        for (int i = 0; i < parkingPlaceList.size(); i++) {
-            System.out.println((i + 1) + ". " + parkingPlaceList.get(i));
+        try {
+            System.out.print("Showing all parking places\n");
+            ParkingService parkingService = new ParkingService();
+            ArrayList<String> parkingList = parkingService.getParkingStrings();
+            for (int i = 0; i < parkingList.size(); i++) {
+                System.out.println((i + 1) + ". " + parkingList.get(i));
+            }
+            User emptyUser = new User();
+            if (user.equals(emptyUser)) menu();
+            inSystemWork(user);
+        } catch (IOException e){
+            logger.error("Can't show parking places");
         }
-        User emptyUser = new User();
-        if (user.equals(emptyUser)) menu();
-        inSystemWork(user);
     }
 
     public void manageParkingPlaces(){
@@ -78,10 +86,10 @@ public class Console {
         return login;
     }
 
-    public boolean usersChecker(User login, ArrayList<String> usersList, UserService users){
+    public boolean usersChecker(User login, ArrayList<User> usersList){
         boolean check = true;
-        for (String s : usersList) {
-            if (login.toString().equals(s)) {
+        for (int i=0; i<usersList.size(); i++) {
+            if (login.equals(usersList.get(i))) {
                 System.out.println("Please, enter another username or password ");
                 check = false;
             }
@@ -89,11 +97,17 @@ public class Console {
         return check;
     }
 
-    public User registration(User login, ArrayList<String> usersList, UserService users) throws IOException {
+    public User registration(User login, ArrayList<User> usersList, UserService users) throws IOException {
         do {
             login = inputUser();
         }
-        while (!usersChecker(login, usersList, users));
+        while (!usersChecker(login, usersList));
+        System.out.print("Pls, add car\nEnter car number:\n");
+        String carNumber = sc.next();
+        CarEntity[] car = new CarEntity[1];
+        CarEntity newCar = new CarEntity(carNumber, login.getUsername());
+        car[0]=newCar;
+        login.setCars(car);
         users.addUser(login);
         return login;
     }
@@ -102,13 +116,12 @@ public class Console {
         System.out.println("Entering in system");
 
         UserService users = new UserService();
-        ArrayList<String> usersList = users.getUserStrings();
+        ArrayList<User> usersList = users.getUser();
 
-        System.out.println("1: Sign in\n 2: Sign on");
+        System.out.println("1: Sign in\n2: Sign on");
         int choose;
         while (!sc.hasNextInt() || (choose = sc.nextInt()) < 1 || choose > 2){ //check for proper input
             wrongInput();
-            System.out.print(">> ");
         }
 
         User login = new User();
@@ -118,8 +131,8 @@ public class Console {
             do {
                 login = inputUser();
                 int help = 0;
-                for (String s : usersList) {
-                    if (login.toString().equals(s)) {
+                for (int i=0; i<usersList.size(); i++) {
+                    if (login.equals(usersList.get(i))) {
                         entrance = true;
                     } else help++;
                 }
@@ -130,7 +143,6 @@ public class Console {
                     int choose1;
                     while (!sc.hasNextInt() || (choose1 = sc.nextInt()) < 1 || choose1 > 2) { //check for proper input
                         wrongInput();
-                        System.out.print(">> ");
                     }
                     if (choose1 == 2) {
                         login = registration(login, usersList, users);
@@ -151,24 +163,27 @@ public class Console {
     public void inSystemWork(User login) throws Exception {
         UserService users = new UserService();
 
-        ParkingPlaceService parkingPlaceService = new ParkingPlaceService();
-        ArrayList<ParkingPlace> parkingPlace = parkingPlaceService.getParkingPlace();
+        ParkingService parkingService = new ParkingService();
+        ArrayList<Parking> parkingList = parkingService.getParking();
 
         ArrayList<User> usersList = users.getUser();
-        ArrayList<String> arrayList = users.getUserStrings();
+        ArrayList<String> userArray = users.getUserStrings();
 
         for (int i = 0; i < usersList.size(); i++) {
-            if (login.toString().equals(arrayList.get(i))) {
+            if (login.equals(usersList.get(i))) {
                 login.setAdmin(usersList.get(i).getIsAdmin());
+                login.setCars(usersList.get(i).getCars());
             }
         }
-        System.out.println("You entered in system as \n" + login.toString());
+
+
+        System.out.println("You entered in system as " + login.getUsername());
 
         if (login.getIsAdmin()) {
             logInOutAsAdmin(login);
         }
 
-        System.out.println("What you want to do: \n" +
+        System.out.println("\nWhat you want to do: \n" +
                 "1: Show parking places\n" +
                 "2. Set car\n" +
                 "3. Remove car\n" +
@@ -177,64 +192,93 @@ public class Console {
         int choose;
         while (!sc.hasNextInt() || (choose = sc.nextInt()) < 1 || choose > 5) { //check for proper input
             wrongInput();
-            System.out.print(">> ");
         }
         switch (choose){
             case 1:
                 showParkingPlaces(login);
                 break;
             case 2:
-                System.out.print("Write your car number:");
+                System.out.print("Choose your car :\n");
+                for (int i=0; i<login.getCars().length; i++) {
+                    System.out.print(login.getCars()[i].getCarNumber() + "\n");
+                }
+                System.out.print("Write your car number : ");
                 String carNumber = sc.next();
-                System.out.print("Choose parking place (its number before name): ");
-                int place = sc.nextInt();
+                for (int i=0; i<login.getCars().length; i++) {
+                    if (carNumber.equals(login.getCars()[i].getCarNumber())) {
 
-                if (place <1 || place >parkingPlace.size()) {
-                    System.out.print("There is no such place!\n ");
-                    inSystemWork(login);
-                }
+                        for (int k = 0; k < parkingList.size(); k++) {
+                            for (int j = 0; j < parkingList.get(k).getParkingPlaces().length; j++) {
+                                if (login.getCars()[i].getCarNumber().equals(parkingList.get(k).getParkingPlaces()[j].getSettedCar().getCarNumber())) {
+                                    System.out.print("This car already on parking\n");
+                                    inSystemWork(login);
+                                }
+                            }
+                        }
 
-                parkingPlaceService.setCar(parkingPlace.get(place-1),carNumber, login);
-                inSystemWork(login);
-                break;
-            case 3:
-                System.out.print("Choose parking place: ");
-                int place1 = sc.nextInt();
+                        System.out.print("Choose parking place (write it id): ");
+                        String id = sc.next();
 
-                if (place1 <1 || place1 >parkingPlace.size()) {
-                    System.out.print("There is no such place!\n ");
-                    inSystemWork(login);
-                }
-
-                    parkingPlaceService.cleanPlace(parkingPlace.get(place1 - 1), login);
-                    inSystemWork(login);
-                break;
-            case 4:
-                int help = 0;
-                for (int i = 0; i < parkingPlace.size(); i++) {
-                    help ++;
-                    if (login.getUsername().equals(parkingPlace.get(i).getCurrentUser())) {
-                        System.out.print("Your car there : \n" + (i + 1) + ". " + parkingPlace.get(i).toString() );
+                        inSystemWork(parkingService.SetCar(login, carNumber, id));
                     }
                 }
-                if (help==parkingPlace.size())  System.out.print("There is no you car placed already\n");
+                System.out.print("Wrong car number!\nPlease, try again\n\n");
+                inSystemWork(login);
+
+                break;
+            case 3:
+                System.out.print("You can remove this cars: \n");
+                for (int i=0; i<login.getCars().length; i++) {
+                        for (int k = 0; k < parkingList.size(); k++) {
+                            for (int j = 0; j < parkingList.get(k).getParkingPlaces().length; j++) {
+                                if (login.getCars()[i].getCarNumber().equals(parkingList.get(k).getParkingPlaces()[j].getSettedCar().getCarNumber())) {
+                                    System.out.print(login.getCars()[i].getCarNumber()+"\n");
+                                }
+                            }
+                        }
+                    }
+                System.out.print("Write number of car, that need to be removed : ");
+                String carNumber1 = sc.next();
+
+                for (int i=0; i<login.getCars().length; i++) {
+                    if (carNumber1.equals(login.getCars()[i].getCarNumber())) {
+                        inSystemWork(parkingService.RemoveCar(login,carNumber1));
+                    }
+                }
+                System.out.print("Wrong number of car, try again\n");
+                inSystemWork(login);
+                break;
+            case 4:
+                System.out.print("Your cars :\n");
+                for (int i=0; i<login.getCars().length; i++) {
+                    System.out.print(login.getCars()[i].getCarNumber());
+                    for (int k = 0; k < parkingList.size(); k++) {
+                        for (int j = 0; j < parkingList.get(k).getParkingPlaces().length; j++) {
+                            if (login.getCars()[i].getCarNumber().equals(parkingList.get(k).getParkingPlaces()[j].getSettedCar().getCarNumber())) {
+                                System.out.print(" ---- this car stay at place : \n" + parkingList.get(k).getParkingPlaces()[j].toString() + "\n");
+                            }
+                        }
+                    }
+                    System.out.print("\n");
+                }
                 inSystemWork(login);
                 break;
             case 5:
                 System.exit(0);
                 break;
+            default:
+                logger.error("Invalid value");
         }
     }
 
     public void logInOutAsAdmin(User login){
-        System.out.println("You entered in system as admin\n" +
-                "There will be something soon :)");
+        System.out.println("There will be something soon :)");
         System.exit(0);
     }
 
     private static void wrongInput(){
         sc.nextLine();
-        System.out.println("Input error\n");
+        logger.error("Wrong input\n");
     }
 
     private static void pause(){

@@ -1,119 +1,67 @@
 {
 "users" : [
 {
+"username" : "admin",
+"password" : "admin",
+"isAdmin" : true,
+"cars" : [
+{
+"carNumber" : "123",
+"owner" : "admin"
+}
+]
+},
+{
+"username" : "1111",
+"password" : "1111",
+"isAdmin" : false,
+"cars" : [
+{
+"carNumber" : "1111",
+"owner" : "1111"
+}
+]
+},
+{
 "username" : "normie2",
 "password" : "111",
-"isAdmin" : false
+"isAdmin" : false,
+"cars" : [
+{
+"carNumber" : "123",
+"owner" : "normie2"
+},
+{
+"carNumber" : "123456",
+"owner" : "normie2"
+}
+]
 },
 {
 "username" : "dima",
-"password" : "dima",
-"isAdmin" : false
+"password" : "bolbat",
+"isAdmin" : false,
+"cars" : [
+{
+"carNumber" : "123456",
+"owner" : "dima"
+}
+]
 },
 {
 "username" : "123",
 "password" : "123",
-"isAdmin" : false
+"isAdmin" : false,
+"cars" : [
+{
+"carNumber" : "2141-12E",
+"owner" : "123"
 },
 {
-"username" : "qq",
-"password" : "qq",
-"isAdmin" : false
-},
-{
-"username" : "asdadg",
-"password" : "adgadg",
-"isAdmin" : false
-},
-{
-"username" : "1234",
-"password" : "1234",
-"isAdmin" : false
-},
-{
-"username" : "Dima",
-"password" : "123",
-"isAdmin" : false
-},
-{
-"username" : "aasafafs",
-"password" : "asfasfaf",
-"isAdmin" : false
-},
-{
-"username" : "asdasd",
-"password" : "asdasd",
-"isAdmin" : false
-},
-{
-"username" : "adgadg",
-"password" : "adgadg",
-"isAdmin" : false
-},
-{
-"username" : "asfasff",
-"password" : "asfasfaf",
-"isAdmin" : false
-},
-{
-"username" : "admin",
-"password" : "admin",
-"isAdmin" : true
-},
-{
-"username" : "asdgdg",
-"password" : "adfgadfgadgf",
-"isAdmin" : false
-},
-{
-"username" : "0zidhf9adhg",
-"password" : "a0dhgpa9dhg",
-"isAdmin" : false
-},
-{
-"username" : "qqq",
-"password" : "qqq",
-"isAdmin" : false
-},
-{
-"username" : "asfasf",
-"password" : "asfasf",
-"isAdmin" : false
-},
-{
-"username" : "1opuaedgpiudh",
-"password" : "iuadgfiupadfg",
-"isAdmin" : false
-},
-{
-"username" : "iusgdiuh",
-"password" : "sfguispfhg",
-"isAdmin" : false
-},
-{
-"username" : "sfsdfs",
-"password" : "sdgsdg",
-"isAdmin" : false
-},
-{
-"username" : "normie",
-"password" : "123",
-"isAdmin" : false
-},
-{
-"username" : "qwe",
-"password" : "qwe",
-"isAdmin" : false
-},
-{
-"username" : "adfadgadg",
-"password" : "adgadgadg",
-"isAdmin" : false
-},
-{
-"username" : "qweqweqwe",
-"password" : "qweqweqwe",
-"isAdmin" : false
+"carNumber" : "12314",
+"owner" : "123"
+}
+]
 }
 ]
 }

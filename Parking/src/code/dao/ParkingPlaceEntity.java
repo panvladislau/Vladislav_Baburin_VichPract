@@ -1,26 +1,24 @@
 package code.dao;
 
+import java.util.Objects;
+
 public class ParkingPlaceEntity {
     private String parkingName;
     private String placeNumber;
-    private String locatedCarNumber;
     private String id;
-    private String currentUser;
+    private CarEntity settedCar;
 
     public ParkingPlaceEntity(){
         this.parkingName = null;
         this.placeNumber = null;
-        this.locatedCarNumber = null;
         this.id = null;
-        this.currentUser = null;
     }
 
-    public ParkingPlaceEntity(String parkingName, String placeNumber, String locatedCarNumber, String id, String currentUser){
+    public ParkingPlaceEntity(String parkingName, String placeNumber, String id, CarEntity settedCar) throws NullPointerException{
         this.placeNumber = placeNumber;
         this.parkingName = parkingName;
-        this.locatedCarNumber = locatedCarNumber;
         this.id = id;
-        this.currentUser = currentUser;
+        this.settedCar = settedCar;
     }
 
     public String getParkingName() {
@@ -47,27 +45,37 @@ public class ParkingPlaceEntity {
         this.id = id;
     }
 
-
-    public String getLocatedCarNumber() {
-        return locatedCarNumber;
+    public CarEntity getSettedCar() {
+        return settedCar;
     }
 
-    public void setLocatedCarNumber(String locatedCarNumber) {
-        this.locatedCarNumber = locatedCarNumber;
+    public void setSettedCar(CarEntity settedCar) {
+        this.settedCar = settedCar;
     }
 
-    public String getCurrentUser() { return currentUser;}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ParkingPlaceEntity that = (ParkingPlaceEntity) o;
+        return Objects.equals(parkingName, that.parkingName) &&
+                Objects.equals(placeNumber, that.placeNumber) &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(settedCar, that.settedCar);
+    }
 
-    public void setCurrentUser(String currentUser) { this.currentUser = currentUser;}
+    @Override
+    public int hashCode() {
+        return Objects.hash(parkingName, placeNumber, id, settedCar);
+    }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("");
-        sb.append("\"Parking name\" : \"").append(parkingName).append("\",\n");
-        sb.append("\"Place number\" : \"").append(placeNumber).append("\",\n");
-        sb.append("\"Located car number\" : \"").append(locatedCarNumber).append("\",\n");
-        sb.append("\"Place id\" : \"").append(id).append("\",\n");
-        sb.append("\"Current user\" : \"").append(currentUser).append("\"\n");
+        sb.append("\"parking_name\" : \"").append(parkingName).append("\",\n");
+        sb.append("\"place_number\" : \"").append(placeNumber).append("\",\n");
+        sb.append("\"place_id\" : \"").append(id).append("\",\n");
+        sb.append("\"setted_car\" : [\n").append("{\n").append(settedCar.toString()).append("}\n").append("]");
         sb.append('\n');
         return sb.toString();
     }

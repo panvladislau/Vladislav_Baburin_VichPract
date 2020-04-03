@@ -5,17 +5,22 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Optional;
 
 public class UserRepository implements GenericDAO<String, UserEntity> {
     Hashtable<String, UserEntity> usersTable = new Hashtable<String, UserEntity>();
 
-    public UserRepository() throws IOException, ParseException {
-        String path = "D:\\reposirory\\lab1\\Vladislav_Baburin_VichPract\\Parking\\resources\\Users.json";
+    public UserRepository() throws IOException, ParseException, CloneNotSupportedException {
+        File file = Paths.get(System.getProperty("user.dir"), "resources/Users.json").toFile();
         JSONParser jsonParser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(path));
+        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file.toString()));
         JSONArray jsonArray = (JSONArray) jsonObject.get("users");
 
         for (int i=0; i<jsonArray.size(); i++) {
@@ -25,8 +30,23 @@ public class UserRepository implements GenericDAO<String, UserEntity> {
             String username = object.get("username").toString();
             String password = object.get("password").toString();
             boolean isAdmin = Boolean.valueOf(object.get("isAdmin").toString());
+            JSONArray carsArray = (JSONArray) object.get("cars");
+            if (carsArray == null) System.out.print("OBOSRALSA");
+            CarEntity[]cars = new CarEntity[carsArray.size()];
 
-            usersTable.put(username, new UserEntity(username, password, isAdmin));
+            for (int j=0; j<carsArray.size(); j++) {
+                Object obj = carsArray.get(j);
+                JSONObject car = (JSONObject) jsonParser.parse(obj.toString());
+                String carNumber = car.get("carNumber").toString();
+                String owner = car.get("owner").toString();
+                CarEntity newCar = new CarEntity(carNumber, owner);
+                cars[j] = newCar;
+
+            }
+
+
+
+            usersTable.put(username, new UserEntity(username, password, isAdmin, cars));
         }
     }
 
@@ -42,9 +62,9 @@ public class UserRepository implements GenericDAO<String, UserEntity> {
 
     @Override
     public void save() throws IOException {
-        String fileName = "D:\\reposirory\\lab1\\Vladislav_Baburin_VichPract\\Parking\\resources\\Users.json";
+        File file = Paths.get(System.getProperty("user.dir"), "resources/Users.json").toFile();
         String str = this.toString();
-        FileOutputStream outputStream = new FileOutputStream(fileName);
+        FileOutputStream outputStream = new FileOutputStream(file.toString());
         byte[] strToBytes = str.getBytes();
         outputStream.write(strToBytes);
         outputStream.close();

@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="jackson-annotations-2.9.9-javadoc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/gson-2.8.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/jackson-core-2.11.0.rc1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/jackson-annotations-2.11.0.rc1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/jackson-databind-2.11.0.rc1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/jackson-annotations-2.9.9-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/jackson-core-2.9.9-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/jackson-databind-2.9.9.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+    <excluded>
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/jackson-core-2.11.0.rc1.jar!/" />
+    </excluded>
+  </library>
+</component>

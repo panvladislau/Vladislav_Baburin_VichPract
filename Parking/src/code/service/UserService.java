@@ -14,7 +14,7 @@ public class UserService {
     UserRepository userRepository = new UserRepository();
     UserMapper mapper = new UserMapper();
 
-    public UserService() throws ParseException, java.text.ParseException, IOException {
+    public UserService() throws ParseException, java.text.ParseException, IOException, CloneNotSupportedException{
     }
 
     public ArrayList<String> getUserStrings() throws Exception {
@@ -46,6 +46,7 @@ public class UserService {
         entity.setUsername(user.getUsername());
         entity.setPassword(user.getPassword());
         entity.setAdmin(user.getIsAdmin());
+        entity.setCars(user.getCars());
         userRepository.add(entity);
     }
 
