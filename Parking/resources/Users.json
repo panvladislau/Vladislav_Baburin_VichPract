@@ -12,6 +12,17 @@
 ]
 },
 {
+"username" : "aaaa",
+"password" : "aaaaa",
+"isAdmin" : false,
+"cars" : [
+{
+"carNumber" : "12334",
+"owner" : "aaaa"
+}
+]
+},
+{
 "username" : "1111",
 "password" : "1111",
 "isAdmin" : false,
@@ -34,6 +45,17 @@
 {
 "carNumber" : "123456",
 "owner" : "normie2"
+}
+]
+},
+{
+"username" : "qwqwq",
+"password" : "qwqwqw",
+"isAdmin" : false,
+"cars" : [
+{
+"carNumber" : "121233",
+"owner" : "qwqwq"
 }
 ]
 },

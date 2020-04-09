@@ -1,3 +1,4 @@
+
 {
 "parking" : [
 {
@@ -20,8 +21,8 @@
 "place_id" : "23463",
 "setted_car" : [
 {
-"carNumber" : "",
-"owner" : ""
+"carNumber" : "12314",
+"owner" : "123"
 }
 ]
 },
