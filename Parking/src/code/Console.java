@@ -1,12 +1,21 @@
 package code;
-import code.dao.CarEntity;
+import code.dao.DB;
+import code.domain.CarEntity;
 import code.domain.Parking;
+
+import code.domain.ParkingPlaceEntity;
+import code.domain.User;
+import code.service.CarService;
+import code.service.ParkingPlaceService;
 import code.service.ParkingService;
 import code.service.UserService;
-
-import code.domain.User;
+import code.service.impl.CarServiceImpl;
+import code.service.impl.ParkingPlaceServiceImpl;
+import code.service.impl.ParkingServiceImpl;
+import code.service.impl.UserServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,11 +66,8 @@ public class Console {
     public void showParkingPlaces(User user) throws Exception {
         try {
             System.out.print("Showing all parking places\n");
-            ParkingService parkingService = new ParkingService();
-            ArrayList<String> parkingList = parkingService.getParkingStrings();
-            for (int i = 0; i < parkingList.size(); i++) {
-                System.out.println((i + 1) + ". " + parkingList.get(i));
-            }
+            ParkingService parkingService = new ParkingServiceImpl();
+            parkingService.listAllParkings();
             User emptyUser = new User();
             if (user.equals(emptyUser)) menu();
             inSystemWork(user);
@@ -97,7 +103,7 @@ public class Console {
         return check;
     }
 
-    public User registration(User login, ArrayList<User> usersList, UserService users) throws IOException {
+    public User registration(User login, ArrayList<User> usersList, UserService userService) throws IOException {
         do {
             login = inputUser();
         }
@@ -108,15 +114,17 @@ public class Console {
         CarEntity newCar = new CarEntity(carNumber, login.getUsername());
         car[0]=newCar;
         login.setCars(car);
-        users.addUser(login);
+        userService.create(login);
+        CarService carService = new CarServiceImpl();
+        carService.create(newCar);
         return login;
     }
 
     public void logIn() throws Exception {
         System.out.println("Entering in system");
 
-        UserService users = new UserService();
-        ArrayList<User> usersList = users.getUser();
+        UserService userService = new UserServiceImpl();
+        ArrayList<User> usersList = userService.readAll();
 
         System.out.println("1: Sign in\n2: Sign on");
         int choose;
@@ -145,7 +153,7 @@ public class Console {
                         wrongInput();
                     }
                     if (choose1 == 2) {
-                        login = registration(login, usersList, users);
+                        login = registration(login, usersList, userService);
                         entrance = true;
                     }
                 }
@@ -153,7 +161,7 @@ public class Console {
 
         }
         if (choose == 2) {
-            login = registration(login, usersList, users);
+            login = registration(login, usersList, userService);
             entrance = true;
         }
 
@@ -161,13 +169,12 @@ public class Console {
     }
 
     public void inSystemWork(User login) throws Exception {
-        UserService users = new UserService();
+        UserService userService = new UserServiceImpl();
 
-        ParkingService parkingService = new ParkingService();
-        ArrayList<Parking> parkingList = parkingService.getParking();
+        ParkingService parkingService = new ParkingServiceImpl();
+        ArrayList<Parking> parkingList = parkingService.readAll();
 
-        ArrayList<User> usersList = users.getUser();
-        ArrayList<String> userArray = users.getUserStrings();
+        ArrayList<User> usersList = userService.readAll();
 
         for (int i = 0; i < usersList.size(); i++) {
             if (login.equals(usersList.get(i))) {
@@ -217,9 +224,33 @@ public class Console {
                         }
 
                         System.out.print("Choose parking place (write it id): ");
-                        String id = sc.next();
+                        String idS = sc.next();
+                        int id = Integer.parseInt(idS);
 
-                        inSystemWork(parkingService.SetCar(login, carNumber, id));
+                        CarEntity settedCar = new CarEntity();
+                        for (int k=0; k<login.getCars().length; k++){
+                            if (login.getCars()[i].getCarNumber().equals(carNumber))
+                                settedCar = login.getCars()[i];
+
+                        }
+
+                        ParkingPlaceService parkingPlaceService = new ParkingPlaceServiceImpl();
+                        ArrayList<ParkingPlaceEntity> parkingPlaceList = parkingPlaceService.readAll();
+
+                        for (int q=0; q<parkingPlaceList.size(); q++){
+                            if (parkingPlaceList.get(q).getId().equals(id)) {
+                                if (parkingPlaceList.get(q).getSettedCar().getCarNumber().equals("")) {
+                                    parkingPlaceList.get(q).setSettedCar(settedCar);
+                                    parkingPlaceService.update(parkingPlaceList.get(q));
+                                    inSystemWork(login);
+                                }
+                                else {
+                                    System.out.println("This place is already ordered");
+                                    inSystemWork(login);
+                                }
+                            }
+                        }
+
                     }
                 }
                 System.out.print("Wrong car number!\nPlease, try again\n\n");
@@ -242,7 +273,15 @@ public class Console {
 
                 for (int i=0; i<login.getCars().length; i++) {
                     if (carNumber1.equals(login.getCars()[i].getCarNumber())) {
-                        inSystemWork(parkingService.RemoveCar(login,carNumber1));
+                        ParkingPlaceService parkingPlaceService = new ParkingPlaceServiceImpl();
+                        ArrayList<ParkingPlaceEntity> parkingPlaces = parkingPlaceService.readAll();
+                        for (int j=0; j<parkingPlaces.size(); j++){
+                            if (parkingPlaces.get(j).getSettedCar().getCarNumber().equals(carNumber1)) {
+                                parkingPlaces.get(j).getSettedCar().setCarNumber("");
+                                parkingPlaces.get(j).getSettedCar().setOwner("");
+                                parkingPlaceService.update(parkingPlaces.get(j));
+                            }
+                        }
                     }
                 }
                 System.out.print("Wrong number of car, try again\n");

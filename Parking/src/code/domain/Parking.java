@@ -1,15 +1,13 @@
 package code.domain;
 
-import code.dao.ParkingPlaceEntity;
-
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Parking {
+public class Parking extends AbstractEntity<Integer>{
     private String name;
     private ParkingPlaceEntity[] parkingPlaces;
 
-    Parking(){
+    public Parking(){
         this.name = "";
     }
 

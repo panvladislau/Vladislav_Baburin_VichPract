@@ -1,11 +1,9 @@
 package code.domain;
 
-import code.dao.CarEntity;
-
 import java.util.Arrays;
 import java.util.Objects;
 
-public class User {
+public class User  extends AbstractEntity<Integer> {
     private String username;
     private String password;
     private boolean isAdmin;
@@ -47,17 +45,6 @@ public class User {
         this.password = password;
         this.isAdmin = isAdmin;
         this.cars = cars;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return isAdmin == user.isAdmin &&
-                Objects.equals(username, user.username) &&
-                Objects.equals(password, user.password) &&
-                Arrays.equals(cars, user.cars);
     }
 
     @Override

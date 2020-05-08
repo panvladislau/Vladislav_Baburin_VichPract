@@ -1,20 +1,21 @@
 package code.dao;
 
+import code.domain.AbstractEntity;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.Optional;
 
-public interface GenericDAO<K, T> {
+public interface GenericDAO<T extends AbstractEntity> {
+    boolean create(T entity);
 
-    Optional<T> get(K username);
+    Optional<T> read(int id);
 
-    Hashtable<K, T> getAll();
+    ArrayList<T> readAll();
 
-    void save() throws IOException;
+    boolean update(T entity);
 
-    void add(T t) throws IOException;
-
-    void update (T t, K id) throws IOException;
-
-    void delete(K id) throws IOException;
+    boolean delete(int id);
 }

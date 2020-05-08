@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Parking@localhost" uuid="1cfbfa07-acea-459d-8e10-2ad68b5a5d2c">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/Parking</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Parking@localhost [2]" uuid="1be6d05a-7ad6-403d-a7cf-e72e66f8429d">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://localhost:1433;database=Parking</jdbc-url>
+    </data-source>
+  </component>
+</project>

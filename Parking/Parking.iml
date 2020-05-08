@@ -23,5 +23,8 @@
     <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.6.0" level="project" />
     <orderEntry type="library" name="jackson-annotations-2.9.9-javadoc" level="project" />
     <orderEntry type="library" name="log4j-core-2.13.1" level="application" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.20" level="application" />
+    <orderEntry type="library" name="mssql-jdbc-8.2.2.jre11" level="application" />
+    <orderEntry type="library" name="mssql-jdbc-8.2.2.jre111" level="application" />
   </component>
 </module>

@@ -1,17 +1,6 @@
 {
 "users" : [
 {
-"username" : "aaaa",
-"password" : "aaaaa",
-"isAdmin" : false,
-"cars" : [
-{
-"carNumber" : "12334",
-"owner" : "aaaa"
-}
-]
-},
-{
 "username" : "admin",
 "password" : "admin",
 "isAdmin" : true,

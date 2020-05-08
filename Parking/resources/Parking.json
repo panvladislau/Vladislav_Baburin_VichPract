@@ -1,80 +1,80 @@
 {
-  "parking": [
-    {
-      "name": "Vileyka",
-      "parking_places": [
-        {
-          "parking_name": "Vileyka",
-          "place_number": "1",
-          "place_id": "13463",
-          "setted_car": [
-            {
-              "carNumber": "",
-              "owner": ""
-            }
-          ]
-        },
-        {
-          "parking_name": "Vileyka",
-          "place_number": "2",
-          "place_id": "23463",
-          "setted_car": [
-            {
-              "carNumber": "12314",
-              "owner": "123"
-            }
-          ]
-        },
-        {
-          "parking_name": "Vileyka",
-          "place_number": "3",
-          "place_id": "10297",
-          "setted_car": [
-            {
-              "carNumber": "",
-              "owner": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Dzyatlovo",
-      "parking_places": [
-        {
-          "parking_name": "Dzyatlovo",
-          "place_number": "2",
-          "place_id": "235235",
-          "setted_car": [
-            {
-              "carNumber": "",
-              "owner": ""
-            }
-          ]
-        },
-        {
-          "parking_name": "Dzyatlovo",
-          "place_number": "3",
-          "place_id": "32452",
-          "setted_car": [
-            {
-              "carNumber": "",
-              "owner": ""
-            }
-          ]
-        },
-        {
-          "parking_name": "Dzyatlovo",
-          "place_number": "1",
-          "place_id": "22452",
-          "setted_car": [
-            {
-              "carNumber": "",
-              "owner": ""
-            }
-          ]
-        }
-      ]
-    }
-  ]
+"parking" : [
+{
+"name" : "Vileyka",
+"parking_places" : [
+{
+"parking_name" : "Vileyka",
+"place_number" : "1",
+"place_id" : "13463",
+"setted_car" : [
+{
+"carNumber" : "",
+"owner" : ""
+}
+]
+},
+{
+"parking_name" : "Vileyka",
+"place_number" : "2",
+"place_id" : "23463",
+"setted_car" : [
+{
+"carNumber" : "12314",
+"owner" : "123"
+}
+]
+},
+{
+"parking_name" : "Vileyka",
+"place_number" : "3",
+"place_id" : "10297",
+"setted_car" : [
+{
+"carNumber" : "",
+"owner" : ""
+}
+]
+}
+]
+},
+{
+"name" : "Dzyatlovo",
+"parking_places" : [
+{
+"parking_name" : "Dzyatlovo",
+"place_number" : "2",
+"place_id" : "235235",
+"setted_car" : [
+{
+"carNumber" : "",
+"owner" : ""
+}
+]
+},
+{
+"parking_name" : "Dzyatlovo",
+"place_number" : "3",
+"place_id" : "32452",
+"setted_car" : [
+{
+"carNumber" : "",
+"owner" : ""
+}
+]
+},
+{
+"parking_name" : "Dzyatlovo",
+"place_number" : "1",
+"place_id" : "22452",
+"setted_car" : [
+{
+"carNumber" : "",
+"owner" : ""
+}
+]
+}
+]
+}
+]
 }
